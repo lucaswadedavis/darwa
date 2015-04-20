@@ -13,10 +13,15 @@ var darwa = function(x){
   return mutation;  
 };
 
+
+
 darwa.rgb = function(x){
   if ( x === undefined ){ x = "rgb(128,128,128)"; }
+  if (typeof x!=="string"){return null;}
+  if (!x.match(/^rgb/) ){return null;}
   
   var colors = x.substr(4).split(',');
+  if (colors.length !==3 ){return null;}
   for (var i=0;i<colors.length;i++){
     colors[i] = Math.floor( ( parseInt(colors[i], 10) ) * (Math.random() + 0.5) );
     colors[i] = Math.max(colors[i], 0);
