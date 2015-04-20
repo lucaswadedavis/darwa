@@ -1,7 +1,9 @@
 var darwa = function(x){
+  console.log(this);
+  
   var mutation = null;
   if (typeof x === 'number'){
-    mutation = x * (Math.random()+0.5);
+    mutation = darwa.float(x);
   }
   if (typeof x === 'string'){
     if (x.substr(0,4) === 'rgb('){
@@ -13,7 +15,10 @@ var darwa = function(x){
   return mutation;  
 };
 
-
+darwa.float = function(x){
+  if (typeof x !== 'number'){return null;}
+  return x * (Math.random()+0.5);
+};
 
 darwa.rgb = function(x){
   if ( x === undefined ){ x = "rgb(128,128,128)"; }

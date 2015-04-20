@@ -39,6 +39,12 @@ describe("darwa.float()",function(){
     expect(darwa.float(3) ).to.be.a('number');
   });
   
+  it('returns a number that is close to the number passed in', function(){
+    for (var i=0;i<100;i++){
+      expect(darwa.float(i*10) ).to.be.closeTo(i*10,(i*10)/2);
+    }
+  });
+  
 });
 
 describe("darwa.rgb()",function(){
