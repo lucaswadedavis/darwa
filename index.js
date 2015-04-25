@@ -17,10 +17,19 @@
     return mutation;  
   };
   
-  darwa.float = function(x){
+  darwa.float = function(x, delta){
+    if (delta === undefined){delta = 0.5;}
     if (typeof x !== 'number'){return null;}
-    return x * (Math.random()+0.5);
+    return x - (x*delta) + (Math.random()*(2*x*delta));
   };
+    
+  
+  darwa.int = function(x){
+    if (typeof x !== 'number'){return null;}
+    if (x === undefined){ x = 5;}
+    return Math.floor(x * (Math.random()+0.5));
+  }; 
+  
     
   darwa.rgb = function(x){
     if ( x === undefined ){ x = "rgb(128,128,128)"; }

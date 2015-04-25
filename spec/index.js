@@ -25,6 +25,30 @@ describe('darwa()', function () {
 
 });
 
+describe("darwa.int()",function(){
+  
+  it('exists',function(){
+    expect(darwa.int).to.be.a('function');
+  });
+  
+  it('returns null if given something other than a number',function(){
+    expect(darwa.int('fone') ).to.equal(null);
+  });
+  
+  it('returns a number if given a number',function(){
+    expect(darwa.int(10) ).to.be.a('number');
+  });
+  
+  it('returns a number close to the one it was given',function(){
+    expect(darwa.int(100) ).to.be.closeTo(100,50);
+  });
+  
+  it('returns whole numbers',function(){
+    expect(darwa.int(100) % 1).to.equal(0);
+  });
+  
+});
+
 describe("darwa.float()",function(){
   
   it('exists',function(){
@@ -42,6 +66,12 @@ describe("darwa.float()",function(){
   it('returns a number that is close to the number passed in', function(){
     for (var i=0;i<100;i++){
       expect(darwa.float(i*10) ).to.be.closeTo(i*10,(i*10)/2);
+    }
+  });
+  
+  it('returns a number that is close to the number passed in - respecting the delta value', function(){
+    for (var i=0;i<100;i++){
+      expect(darwa.float(i*10,0.01) ).to.be.closeTo(i*10,i*10*0.01);
     }
   });
   
