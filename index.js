@@ -17,21 +17,22 @@
     return mutation;  
   };
   
-  darwa.float = function(x, delta){
+  darwa.float = function(x,delta){
     if (delta === undefined){delta = 0.5;}
     if (typeof x !== 'number'){return null;}
     return x - (x*delta) + (Math.random()*(2*x*delta));
   };
-    
   
-  darwa.int = function(x){
+  darwa.int = function(x,delta){
     if (typeof x !== 'number'){return null;}
-    if (x === undefined){ x = 5;}
-    return Math.floor(x * (Math.random()+0.5));
+    if (delta === undefined){delta = 0.5;}
+    if (x === undefined){ x = 50;}
+    return Math.floor(darwa.float(x,delta));
   }; 
   
     
-  darwa.rgb = function(x){
+  darwa.rgb = function(x, delta){
+    if (delta === undefined){delta = 0.9;}
     if ( x === undefined ){ x = "rgb(128,128,128)"; }
     if (typeof x!=="string"){return null;}
     if (!x.match(/^rgb/) ){return null;}
@@ -39,7 +40,7 @@
     var colors = x.substr(4).split(',');
     if (colors.length !==3 ){return null;}
     for (var i=0;i<colors.length;i++){
-      colors[i] = Math.floor( ( parseInt(colors[i], 10) ) * (Math.random() + 0.5) );
+      colors[i] = Math.floor( darwa.float( parseInt(colors[i], 10), delta ) );
       colors[i] = Math.max(colors[i], 0);
       colors[i] = Math.min(colors[i], 255);
     }
