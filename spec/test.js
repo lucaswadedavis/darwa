@@ -1,5 +1,30 @@
 /* global index, describe, it, expect, should */
 
+
+describe("darwa.letter()",function(){
+  
+  it('exists',function(){
+    expect(darwa.letter).to.be.a('function');
+  });
+  
+  it('returns null when invoked without arguments',function(){
+    expect( darwa.letter() ).to.equal(null);
+  });
+ 
+  it('returns a string when given a string', function(){
+    expect( darwa.letter('h') ).to.be.a('string') ;
+  });
+  
+  it('returns a consonant when given a consonant', function(){
+    expect( darwa.letter('h') ).to.match(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/) ;
+  });
+  
+  it('returns a vowel when given a vowel', function(){
+    expect( darwa.letter('a') ).to.match(/[a|e|i|o|u|y]/) ;
+  });
+  
+});
+
 describe('darwa()', function () {
   
   it('exists', function () {

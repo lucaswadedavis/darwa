@@ -17,6 +17,24 @@
     return mutation;  
   };
   
+  darwa.letter = function(letter){
+    if (letter === undefined){return null;}
+    var vowels = ("aeiouy").split("");
+    var consonants = ("bcdfghjklmnpqrstvwxyz").split("");
+    if (vowels.indexOf(letter.toLowerCase())>-1){
+      letter = darwa.sample(vowels);
+    } else if (consonants.indexOf(letter.toLowerCase())>-1){
+      letter = darwa.sample(consonants);
+    }
+    console.log(letter);
+    return letter;
+  };
+  
+  darwa.sample = function(arr){
+    if (arr === undefined){return null;}
+    return arr[Math.floor(Math.random()*arr.length)];
+  };
+  
   darwa.float = function(x,delta){
     if (delta === undefined){delta = 0.5;}
     if (typeof x !== 'number'){return null;}
