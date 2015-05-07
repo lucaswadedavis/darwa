@@ -1,5 +1,5 @@
 {
-  "name": "Darwa",
+  "name": "darwa",
   "version": "1.0.1",
   "description": "Mutates Strings, Floats, Ints, and more bizarre things (like rgb values).",
   "main": "index.js",
