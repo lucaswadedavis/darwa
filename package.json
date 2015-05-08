@@ -4,7 +4,7 @@
   "description": "Mutates Strings, Floats, Ints, and more bizarre things (like rgb values).",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\""
+    "test": "mocha ./spec/test.js"
   },
   "repository": {
     "type": "git",

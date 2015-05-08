@@ -1,5 +1,21 @@
-/* global index, describe, it, expect, should */
+try {
+  var chai = require('chai');
+  var expect = chai.expect;
+  var darwa = require('../index.js');
+} catch (err){
+  
+}
 
+describe("darwa.string()",function(){
+  it("exists",function(){
+    expect(darwa.letter).to.be.a('function');
+  });
+  
+  it('returns a string similar to the one given',function(){
+    expect( darwa.string('i am the very model of a modern major general') ).to.be.a('string');
+  });
+  
+});
 
 describe("darwa.letter()",function(){
   

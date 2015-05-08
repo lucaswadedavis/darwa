@@ -10,6 +10,8 @@
     if (typeof x === 'string'){
       if (x.substr(0,4) === 'rgb('){
         mutation = darwa.rgb(x);
+      } else {
+        mutation = darwa.string(x);
       }
     }
     
@@ -28,6 +30,18 @@
     }
     console.log(letter);
     return letter;
+  };
+  
+  darwa.string = function(str){
+    if (str === undefined){return null;}
+    str = str.split("");
+    var index = Math.floor(Math.random()*str.length);
+    str[index] = darwa.letter(str[index]);
+    for (var i=0;i<Math.floor(str.length/100);i++){
+      index = Math.floor(Math.random()*str.length);
+      str[index] = darwa.letter(str[index]);
+    }
+    return str.join("");
   };
   
   darwa.sample = function(arr){
